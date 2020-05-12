@@ -13,8 +13,8 @@ def timed(fn: Callable) -> Callable:
         start = perf_counter()
         output = fn(*args, **kwargs)
         duration = perf_counter() - start
-        logging.info('{0} took {1} seconds to execute with parameters args: \
-{2}, kwargs: {3}'.format(fn.__name__, duration, args, kwargs))
+        logging.info('''{0} took {1} seconds to execute with parameters args: \
+{2}, kwargs: {3}'''.format(fn.__name__, duration, args, kwargs))
         return output
     return _inner
 
@@ -48,8 +48,8 @@ def timed_n(repetitions: int) -> Callable:
                 output = fn(*args, **kwargs)
             duration = perf_counter() - start
             logging.info(
-                '{0} took {1} seconds to execute {2} times with parameters '
-                'args: {3}, kwargs: {4}'.
+                '''{0} took {1} seconds to execute {2} times with parameters \
+args: {3}, kwargs: {4}'''.
                 format(fn.__name__, duration, repetitions, args, kwargs))
             return output
         return _inner
